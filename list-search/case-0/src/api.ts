@@ -45,6 +45,9 @@ const api = {
 
     return new Promise((resolve) => setTimeout(() => resolve(results), 1000));
   },
+  initProducts: () => {
+    return PRODUCTS
+  },
 };
 
 export default api;

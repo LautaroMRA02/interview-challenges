@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import api from "./api";
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(() => api.initProducts());
   const [query, setQuery] = useState<string>("");
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function App() {
   return (
     <main>
       <h1>Tienda digitaloncy</h1>
-      <input name="text" placeholder="tv" type="text" onChange={(e) => setQuery(e.target)} />
+      <input name="text" placeholder="tv" type="text" onChange={(e) => setQuery(e.target.value)} />
       <ul>
         {products.map((product) => (
           <li key={product.id}>
